@@ -10,11 +10,24 @@ fetch(
   .then(function (response) {
     console.log("set img src");
     img.src = response.data.images.original.url;
-  })
-  .then(function () {
-    console.log("display btn");
-    btn.style.display = "block";
+    img.onload = () => {
+      console.log("display btn");
+      btn.style.display = "block";
+    };
   });
+
+// function loaded() {
+//   alert("loaded");
+// }
+
+// if (img.complete) {
+//   loaded();
+// } else {
+//   img.addEventListener("load", loaded);
+//   img.addEventListener("error", function () {
+//     alert("error");
+//   });
+// }
 const btn = document.querySelector("button");
 btn.onclick = function () {
   console.log("button clicked");
@@ -28,7 +41,11 @@ btn.onclick = function () {
     })
     .then(function (response) {
       img.src = response.data.images.original.url;
-      btn.style.display = "block";
+      console.log("set img src");
+      img.onload = () => {
+        console.log("display btn");
+        btn.style.display = "block";
+      };
     });
 };
 // TODO hide the button until the image is fully loaded.
