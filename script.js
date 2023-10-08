@@ -16,18 +16,6 @@ fetch(
     };
   });
 
-// function loaded() {
-//   alert("loaded");
-// }
-
-// if (img.complete) {
-//   loaded();
-// } else {
-//   img.addEventListener("load", loaded);
-//   img.addEventListener("error", function () {
-//     alert("error");
-//   });
-// }
 const btn = document.querySelector("button");
 btn.onclick = function () {
   console.log("button clicked");
