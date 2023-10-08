@@ -48,4 +48,3 @@ btn.onclick = function () {
       };
     });
 };
-// TODO hide the button until the image is fully loaded.
