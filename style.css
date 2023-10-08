@@ -19,8 +19,7 @@ body {
   margin: 0;
 }
 
-button {
+#loadNext {
   margin: 1rem;
-  height: 5rem;
   display: none;
 }
