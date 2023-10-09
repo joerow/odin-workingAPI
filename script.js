@@ -14,22 +14,16 @@ function buildFetch(fetchTerm) {
   );
 }
 
-fetch(
-  "https://api.giphy.com/v1/gifs/translate?api_key=3pBFAUCgXOsRO3EV6pnb87nZEwy8tita&s=cats&weirdness=4",
-  { mode: "cors" }
-)
-  .then(function (response) {
-    console.log("get json");
-    return response.json();
-  })
-  .then(function (response) {
-    console.log("set img src");
-    img.src = response.data.images.original.url;
-    img.onload = () => {
-      console.log("display btn");
-      next.style.display = "block";
-    };
-  });
+async function getcats() {
+  const response = await fetch(
+    "https://api.giphy.com/v1/gifs/translate?api_key=3pBFAUCgXOsRO3EV6pnb87nZEwy8tita&s=cats&weirdness=4",
+    { mode: "cors" }
+  );
+  const catData = await response.json();
+  img.src = catData.data.images.original.url;
+  next.style.display = "block";
+}
+getcats();
 
 next.onclick = function () {
   console.log("next button clicked");
